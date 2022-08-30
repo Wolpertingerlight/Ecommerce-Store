@@ -1,0 +1,24 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+	<div style="display: flex;flex-direction: row; justify-content: space-around; flex-wrap: wrap ">
+		{% for product in products %}
+
+		<div class="col-lg-4" style="padding:5px; margin:5px;" >
+			<img class="thumbnail" src={{product.imageURL}} style="width: 85px;">
+			<div class="box-element product">
+				<h6><strong>{{product.name}}</strong></h6>
+				<hr>
+
+				<button data-product={{product.id}} data-action="add" class="btn btn-outline-secondary add-btn update-cart">Добавить в корзину</button>
+				
+<!--				<a class="btn btn-outline-success" href="#">View</a>-->
+				<h4 style="display: inline-block; float: right"><strong>{{product.price}} Р</strong></h4>
+
+			</div>
+		</div>
+
+		{% endfor %}
+	</div>
+
+{% endblock content %}
